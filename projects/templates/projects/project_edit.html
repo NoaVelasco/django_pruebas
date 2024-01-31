@@ -1,0 +1,15 @@
+<!-- projects/templates/projects/project_detail.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+<div><button class="btn btn-primary btn-sm"> <a class="nav-link" href="/projects">Volver</a></button></div>
+
+<h1>Editar proyecto</h1>
+<div class="row">
+    <form method="POST" class="project-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-secondary">Save</button>
+    </form>
+</div>
+{% endblock page_content %}
