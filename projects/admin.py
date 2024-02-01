@@ -7,7 +7,9 @@ class ExperienceAdmin(admin.ModelAdmin):
     pass
 
 class PersonaAdmin(admin.ModelAdmin):
+    # list_display = ('name', 'bio', 'web', 'rrss_1', 'rrss_2', 'email')
     pass
+
 class ProjectAdmin(admin.ModelAdmin):
     pass
 

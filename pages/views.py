@@ -4,8 +4,10 @@ from django.shortcuts import render
 def home(request):
     return render(request, "pages/home.html", {})
 
-def projects(request):
-    return render(request, "pages/projects.html", {})
+# @NOA: La vista de PROJECTS está en la carpeta de PROJECTS
+# Creo que aquí no hace nada, ¿verdad? 🤔
+# def projects(request):
+#     return render(request, "pages/projects.html", {})
 
 def experience(request):
     return render(request, "pages/experience.html", {})

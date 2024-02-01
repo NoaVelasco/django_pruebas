@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 # Create your models here.
 class Project(models.Model):
@@ -27,6 +27,19 @@ class Persona(models.Model):
     password = models.CharField(max_length=30, default="1234")
     image = models.FileField(upload_to="users_images/", blank=True)
 
+    def __str__(self):  
+        """  
+        String que representa al objeto x.  
+        """  
+        return self.name
+
+
+    def get_absolute_url(self):  
+        """  
+        Devuelve el URL a una instancia particular   
+        """  
+        return reverse('persona-detail', args=[str(self.id)])
+
 
 class Experience(models.Model):
     title = models.CharField(max_length=40, blank=True, null=True)
@@ -39,6 +52,7 @@ class Experience(models.Model):
         help_text="Describe tu cargo y funciones."
     )
     # @TODO: Para el panel de admin, ¿se puede mostrar el nombre y no el id de Persona?
+    # He probado con definir la función __str__
     persona = models.ForeignKey(
         "Persona",
         on_delete=models.CASCADE,

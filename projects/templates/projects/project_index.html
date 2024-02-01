@@ -3,7 +3,7 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<h1>Projects</h1>
+<h1>Proyectos</h1>
 <div><button type="button" class="btn btn-primary btn-sm"> <a class="nav-link" href="/projects/new">Nuevo proyecto +</a></button></div>
 <hr class="hr hr-blurry" />
 <div class="row">
@@ -18,7 +18,7 @@
                 <p class="card-text">{{ project.description }}</p>
                 <a href="{% url 'project_detail' project.pk %}"
                    class="btn btn-primary">
-                    Read More
+                    Leer más
                 </a>
             </div>
         </div>
