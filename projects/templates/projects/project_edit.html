@@ -3,11 +3,10 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<div><button class="btn btn-primary btn-sm"> <a class="nav-link" href="/projects">Volver</a></button></div>
-
+<aside><button class="btn btn-primary btn-sm"> <a class="nav-link" href="/projects">Volver</a></button></aside>
 <h1>Editar proyecto</h1>
 <div class="row">
-    <form method="POST" class="project-form">{% csrf_token %}
+    <form method="POST" enctype="multipart/form-data" class="project-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-secondary">Save</button>
     </form>

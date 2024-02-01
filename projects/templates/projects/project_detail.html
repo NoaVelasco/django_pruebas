@@ -5,6 +5,10 @@
 {% block page_content %}
 <h1>{{ project.title }}</h1>
 <div class="row">
+    <aside>
+    <a class="btn btn-secondary" href="{% url 'project_edit' pk=project.pk %}"> Editar</a>
+    <button class="btn btn-primary btn-sm"> <a class="nav-link" href="/projects">Volver</a></button>
+    </aside>
     <div class="col-md-8">
         {% if project.image %}
             <img src="{{ project.image.url }}" width="100%">
@@ -15,7 +19,7 @@
         <p>{{ project.description }}</p>
         <br>
         <h5>Technology used:</h5>
-        <p>{{ project.technology }}</p>
+        <p>{{ project.tags }}</p>
     </div>
 </div>
 {% endblock page_content %}
