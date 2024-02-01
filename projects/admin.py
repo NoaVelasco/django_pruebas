@@ -1,5 +1,5 @@
 from django.contrib import admin
-from projects.models import Experiences, Persona, Project
+from projects.models import Experience, Persona, Project
 
 
 # Register your models here.
@@ -12,6 +12,6 @@ class ProjectAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Experiences, ExperienceAdmin)
+admin.site.register(Experience, ExperienceAdmin)
 admin.site.register(Persona, PersonaAdmin)
 admin.site.register(Project, ProjectAdmin)
