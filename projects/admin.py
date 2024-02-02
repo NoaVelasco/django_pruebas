@@ -4,11 +4,20 @@ from projects.models import Experience, Persona, Project
 
 # Register your models here.
 class ExperienceAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        "title",
+        "company",
+        "init_date", "end_date",
+        "experience",
+        "persona",
+    )
+    # pass
+
 
 class PersonaAdmin(admin.ModelAdmin):
     # list_display = ('name', 'bio', 'web', 'rrss_1', 'rrss_2', 'email')
     pass
+
 
 class ProjectAdmin(admin.ModelAdmin):
     pass
