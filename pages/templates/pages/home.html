@@ -4,20 +4,20 @@
 
 {% block page_content %}
 <div>
-    <h1>Experto en GCP</h1>
+
+    <h1>{{bio.name}}</h1>
     <!-- NUESTRA INTRODUCCION GENERADA DINAMICAMENTE IRIA AQUI, EN VEZ DE TEXTO A PELO-->
-    <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Mauris quis ligula in libero bibendum cursus. 
-        Praesent lobortis nunc quis facilisis facilisis.
-        Nam scelerisque vehicula velit ac finibus. Phasellus imperdiet, metus quis pulvinar tincidunt, velit risus efficitur enim, at congue quam lectus a nunc. Nam sit amet placerat odio. Proin porta ac mauris id tristique. 
-        Integer aliquet, diam sit amet dapibus ornare, metus felis suscipit magna, at dictum velit elit sit amet tortor. Aliquam erat volutpat. Ut quis ipsum eu ligula lobortis pharetra. 
-        Suspendisse sollicitudin finibus justo, non placerat neque tincidunt at. 
-        Sed libero velit, malesuada ac consectetur ullamcorper, porttitor aliquam lectus. 
-        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-        Maecenas vitae vulputate enim, nec ultrices lorem.
-        Integer eu massa mattis, volutpat augue blandit, posuere neque.
-        </p>
+    <div class="row">
+        <p>{{bio.bio}}</p>
+        <p>{{bio.web}}</p>
+        <p>{{bio.rrss_1}}</p>
+        <p>{{bio.rrss_2}}</p>
+        <p>{{bio.email}}</p>
+        <div class="col-md-8">
+            {% if project.image %}
+                <img src="{{ bio.image.url }}" width="100%">
+            {% endif %}
+        </div>
     </div>
      <!-- FIN DE NUESTRA INTRODUCCION-->
 </div>

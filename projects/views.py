@@ -16,6 +16,7 @@ def project_detail(request, pk):
     return render(request, "projects/project_detail.html", context)
 
 def project_new(request):
+<<<<<<< HEAD
     if request.method == "POST":
         form=ProjectForm(request.POST, request.FILES,)
         if form.is_valid():
@@ -39,3 +40,7 @@ def project_edit(request,pk):
     else:
         form=ProjectForm(instance=project)
         return render(request, 'projects/project_edit.html', {'form':form})
+=======
+    form=ProjectForm()
+    return render(request, 'projects/project_edit.html', {'form':form})
+>>>>>>> 4db0e225bfb33b97bc6fd4bf0f12b4ce03fde929

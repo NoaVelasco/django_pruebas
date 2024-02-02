@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -27,18 +28,30 @@ class Persona(models.Model):
     password = models.CharField(max_length=30, default="1234")
     image = models.FileField(upload_to="users_images/", blank=True)
 
+    def __str__(self):
+        """
+        String que representa al objeto x.
+        """
+        return self.name
+
+# Esta función la vi en un tutorial y no sé si puede servirnos para algo:
+    # def get_absolute_url(self):
+    #     """
+    #     Devuelve el URL a una instancia particular
+    #     """
+    #     return reverse("user-home", args=[str(self.id)])
+
 
 class Experience(models.Model):
     title = models.CharField(max_length=40, blank=True, null=True)
     company = models.CharField(max_length=40, blank=True, null=True)
-    # @TODO: ¿cómo se ordena en función de la fecha más reciente de fin+ini?
+    # @TODO ¿cómo se ordena en función de la fecha más reciente de fin+ini?
     init_date = models.DateField(null=True, blank=True)
-    # @TODO: ¿Tendría que ser un string para dar la opción de poner "en la actualidad"?
+    # @TODO ¿Tendría que ser un string para dar la opción de poner "en la actualidad"?
     end_date = models.DateField(null=True, blank=True)
-    experience = models.TextField(
-        help_text="Describe tu cargo y funciones."
-    )
-    # @TODO: Para el panel de admin, ¿se puede mostrar el nombre y no el id de Persona?
+    experience = models.TextField(help_text="Describe tu cargo y funciones.")
+    # @TODO Para el panel de admin, ¿se puede mostrar el nombre y no el id de Persona?
+    # He probado con definir la función __str__
     persona = models.ForeignKey(
         "Persona",
         on_delete=models.CASCADE,
