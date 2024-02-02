@@ -2,36 +2,26 @@
 
 {% block page_content %}
 <div>
-    <h2>EMPRESA 1</h1>
-    <!-- NUESTRA EXPERINCIA GENERADA DINAMICAMENTE IRIA AQUI, EN VEZ DE TEXTO A PELO-->
-    <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Mauris quis ligula in libero bibendum cursus. 
-        Praesent lobortis nunc quis facilisis facilisis.
-        Nam scelerisque vehicula velit ac finibus. Phasellus imperdiet, metus quis pulvinar tincidunt, velit risus efficitur enim, at congue quam lectus a nunc. Nam sit amet placerat odio. Proin porta ac mauris id tristique. 
-        Integer aliquet, diam sit amet dapibus ornare, metus felis suscipit magna, at dictum velit elit sit amet tortor. Aliquam erat volutpat. Ut quis ipsum eu ligula lobortis pharetra. 
-        Suspendisse sollicitudin finibus justo, non placerat neque tincidunt at. 
-        Sed libero velit, malesuada ac consectetur ullamcorper, porttitor aliquam lectus. 
-        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-        Maecenas vitae vulputate enim, nec ultrices lorem.
-        Integer eu massa mattis, volutpat augue blandit, posuere neque.
-        </p>
-    </div>
-    <h2>EMPRESA 2</h1>
-        <!-- NUESTRA EXPERINCIA GENERADA DINAMICAMENTE IRIA AQUI, EN VEZ DE TEXTO A PELO-->
+    <h1>Experiencia</h1>
+    {% for exp in exps %}
+        <h2>{{exp.title}}</h2>
         <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Mauris quis ligula in libero bibendum cursus. 
-            Praesent lobortis nunc quis facilisis facilisis.
-            Nam scelerisque vehicula velit ac finibus. Phasellus imperdiet, metus quis pulvinar tincidunt, velit risus efficitur enim, at congue quam lectus a nunc. Nam sit amet placerat odio. Proin porta ac mauris id tristique. 
-            Integer aliquet, diam sit amet dapibus ornare, metus felis suscipit magna, at dictum velit elit sit amet tortor. Aliquam erat volutpat. Ut quis ipsum eu ligula lobortis pharetra. 
-            Suspendisse sollicitudin finibus justo, non placerat neque tincidunt at. 
-            Sed libero velit, malesuada ac consectetur ullamcorper, porttitor aliquam lectus. 
-            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-            Maecenas vitae vulputate enim, nec ultrices lorem.
-            Integer eu massa mattis, volutpat augue blandit, posuere neque.
+        {% if exp.company %}
+        <h3>{{exp.company}}</h3>
+        {% endif %}
+        {% if exp.init_date %}
+            <p>{{exp.init_date}} - 
+            {% if exp.end_date %}
+                {{exp.end_date}}
+            {% else %}
+                actualmente
+            {% endif %}
             </p>
+        {% endif %}
+        <p>{{exp.experience}}</p>
         </div>
+    {% endfor %}
+
 </div>
 
 
