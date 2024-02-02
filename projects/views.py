@@ -39,3 +39,8 @@ def project_edit(request,pk):
     else:
         form=ProjectForm(instance=project)
         return render(request, 'projects/project_edit.html', {'form':form})
+    
+def project_delete(request,pk):
+    p = get_object_or_404(Project,pk=pk)
+    p.delete()
+    return redirect('project_index')

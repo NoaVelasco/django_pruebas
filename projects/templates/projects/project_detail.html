@@ -7,6 +7,8 @@
 <div class="row">
     <aside>
     <a class="btn btn-secondary" href="{% url 'project_edit' pk=project.pk %}"> Editar</a>
+    <a class="btn btn-danger" href="{% url 'project_delete' pk=project.pk %}"> Borrar</a>
+  
     <button class="btn btn-primary btn-sm"> <a class="nav-link" href="/projects">Volver</a></button>
     </aside>
     <div class="col-md-8">
