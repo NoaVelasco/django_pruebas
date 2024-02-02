@@ -20,7 +20,19 @@ def home_edit(request):
             return render(request, 'pages/home_edit.html', {'form':form})
 
 def experience(request):
-    exps = Experience.objects.filter(persona__exact=1)
+    exps = Experience.objects.all()
     bio = Persona.objects.get(id=1)
     return render(request, "pages/experience.html", {'exps': exps,'bio': bio})
 
+def experience_new(request):
+    if request.method == "POST":
+        form=ExperienceForm(request.POST)
+        if form.is_valid():
+            experience = form.save(commit=False)
+            #post.author = request.user
+            #post.published_date = timezone.now()
+            experience.save()
+            return redirect('experience')   
+    else:
+        form = ExperienceForm()
+    return render(request, 'pages/experience_edit.html', {'form':form})

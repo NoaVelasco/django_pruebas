@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Persona, Experience
+from projects.models import Persona, Experience
 
 class PersonaForm(forms.ModelForm):
     
@@ -12,4 +12,4 @@ class ExperienceForm(forms.ModelForm):
 
     class Meta:
         model= Experience
-        fields = ('title','company','experience','init_date','end_date')
+        fields = ('title','company','init_date','end_date','experience')
