@@ -21,17 +21,17 @@ def home_edit(request):
 
 def experience(request):
     exps = Experience.objects.all()
-    # bio = Persona.objects.get(id=1)
+    # bio = Persona.objects.all()
     return render(request, "pages/experience.html", {'exps': exps})
 
 def experience_edit(request,pk):
-    project = get_object_or_404(Experience,pk=pk)
+    experience = get_object_or_404(Experience,pk=pk)
     if request.method == "POST":
-        form = ExperienceForm(request.POST, instance=project)
+        form = ExperienceForm(request.POST, instance=experience)
         if form.is_valid():
-            project = form.save(commit=False)
-            project.save()
+            experience = form.save(commit=True)
+            experience.save()
             return redirect('home')
     else:
-        form=ExperienceForm(instance=project)
-        return render(request, 'projects/project_edit.html', {'form':form})
+        form=ExperienceForm(instance=experience)
+        return render(request, 'pages/experience.html', {'form':form})

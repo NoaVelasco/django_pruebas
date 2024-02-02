@@ -1,0 +1,16 @@
+<!-- pages/templates/pages/experience_edit.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+<aside>
+    <button class="btn btn-primary btn-sm"> <a class="nav-link" href="/experience">Volver</a></button>
+</aside>
+<h1>Editar experiencia</h1>
+<div class="row">
+    <form method="POST" enctype="multipart/form-data" class="experience-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-secondary">Save</button>
+    </form>
+</div>
+{% endblock page_content %}

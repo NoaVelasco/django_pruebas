@@ -6,4 +6,5 @@ urlpatterns = [
     path("home_edit/", views.home_edit, name="home_edit"),
    # path("projects", views.projects, name="projects"),
     path("experience/", views.experience, name="experience"),
+    path('experience_edit/<int:pk>', views.experience_edit, name='experience_edit')
 ]

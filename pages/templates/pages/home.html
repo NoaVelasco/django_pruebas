@@ -4,25 +4,23 @@
 
 {% block page_content %}
 <div>
-
     <h1>{{bio.name}}</h1>
-    <!-- NUESTRA INTRODUCCION GENERADA DINAMICAMENTE IRIA AQUI, EN VEZ DE TEXTO A PELO-->
     <div class="row">
         <aside>
             <a class="btn btn-secondary" href="{% url 'home_edit' %}"> Editar</a> 
-            </aside>
+        </aside>
+    <div class="col-md-6">
+        {% if bio.image %}
+            <img src="{{bio.image.url}}" width="500">
+        {% endif %}
+    </div>
+    <div class="col-md-6">
         <p>{{bio.bio}}</p>
         <p>{{bio.web}}</p>
         <p>{{bio.rrss_1}}</p>
         <p>{{bio.rrss_2}}</p>
         <p>{{bio.email}}</p>
-        <div class="col-md-8">
-            {% if bio.image %}
-                <img src="{{ bio.image.url }}" width="100%">
-            {% endif %}
-        </div>
     </div>
-     <!-- FIN DE NUESTRA INTRODUCCION-->
 </div>
 
 

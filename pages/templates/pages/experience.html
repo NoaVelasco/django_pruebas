@@ -4,22 +4,26 @@
 <div>
     <h1>Experiencia</h1>
     {% for exp in exps %}
-        <h2>{{exp.title}}</h2>
-        <div>
+    <h2>{{exp.title}}</h2>
+    <div>
         {% if exp.company %}
         <h3>{{exp.company}}</h3>
         {% endif %}
         {% if exp.init_date %}
-            <p>{{exp.init_date}} - 
+        <p>{{exp.init_date}} - 
             {% if exp.end_date %}
-                {{exp.end_date}}
+            {{exp.end_date}}
             {% else %}
-                actualmente
+            actualmente
             {% endif %}
-            </p>
+        </p>
         {% endif %}
         <p>{{exp.experience}}</p>
-        </div>
+    </div>
+    <aside>
+        <a class="btn btn-secondary" href="{% url 'experience_edit' pk=exp.pk %}"> Editar</a> 
+    </aside>
+    <br>
     {% endfor %}
 
 </div>
