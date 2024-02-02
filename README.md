@@ -8,7 +8,7 @@
 + **Código:** Python v3.12
 + **Base de Datos:** SQLite 
 + **Repositorio:** GitHub
-+ **Diseño:** Boostrap CSS 
++ **Diseño:** CSS with Boostrap v5 
 
 ## Componentes del **Equipazo**
 + Álvaro
