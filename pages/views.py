@@ -4,6 +4,33 @@ from .forms import PersonaForm, ExperienceForm
 
 
 # Create your views here.
+def index(request):
+    portfolios = Persona.objects.all()
+    return render(request, "pages/index.html", {"portfolios": portfolios})
+
+def bio(request, pk):
+    bio = Persona.objects.get(pk=pk)
+    return render(request, "pages/bio.html", {"bio": bio})
+
+
+def bio_edit(request, pk):
+    persona = Persona.objects.get(pk=pk)
+    if request.method == "POST":
+        form = PersonaForm(request.POST, instance=persona)
+        if form.is_valid():
+            persona = form.save(commit=False)
+            persona.save()
+            return redirect("bio", pk=pk)
+    else:
+        form = PersonaForm(instance=persona)
+        return render(request, "pages/bio_edit.html", {"form": form})
+
+
+def exp(request, pk):
+    exps = Experience.objects.filter(pk=pk)
+    return render(request, "pages/exp.html", {"exps": exps})
+
+# OLD --------------------------------
 def home(request):
     persona = Persona.objects.get(id=1)
     return render(request, "pages/home.html", {"bio": persona})

@@ -1,0 +1,32 @@
+<!-- pages/templates/pages/index.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+<div>
+    <h1>Galería de portfolios</h1>
+    <div><button type="button" class="btn btn-primary btn-sm"> <a class="nav-link" href="/bio_new">Nuevo portfolio +</a></button></div>
+    <hr class="hr hr-blurry" />
+    <h3>Selecciona un porfolio</h3>
+    <div class="row">
+    {% for portfolio in portfolios %}
+        <div class="col-md-4">
+            <div class="card mb-2">
+                {% if portfolio.image %}
+                    <img class="card-img-top" src="{{ portfolio.image.url }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ portfolio.title }}</h5>
+                    <a href="{% url 'bio' portfolio.pk %}"
+                    class="btn btn-primary">
+                        Leer más
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+
+
+{% endblock page_content %}
