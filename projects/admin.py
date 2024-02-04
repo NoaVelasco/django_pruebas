@@ -11,7 +11,6 @@ class ExperienceAdmin(admin.ModelAdmin):
         "experience",
         "persona",
     )
-    # pass
 
 
 class PersonaAdmin(admin.ModelAdmin):
@@ -20,7 +19,13 @@ class PersonaAdmin(admin.ModelAdmin):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        "title",
+        "description",
+        "image",
+        "persona_id",
+        "tags",
+    )
 
 
 admin.site.register(Experience, ExperienceAdmin)

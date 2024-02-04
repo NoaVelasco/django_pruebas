@@ -1,6 +1,19 @@
 {% extends "base.html" %}
 
 {% block page_content %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'index' %}">Inicio</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'bio' pk %}">Bio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/projects">Proyectos</a>
+        </li>
+    </ul>
+</nav>
 <div>
     <h1>Experiencia</h1>
     {% for exp in exps %}
@@ -21,7 +34,7 @@
         <p>{{exp.experience}}</p>
     </div>
     <aside>
-        <a class="btn btn-secondary" href="{% url 'experience_edit' pk=exp.pk %}"> Editar</a> 
+        <a class="btn btn-secondary" href="{% url 'exp_edit' exp.pk %}"> Editar</a> 
     </aside>
     <br>
     {% endfor %}

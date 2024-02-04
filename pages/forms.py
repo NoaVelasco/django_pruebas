@@ -7,7 +7,7 @@ class PersonaForm(forms.ModelForm):
 
     class Meta:
         model = Persona
-        fields = ("bio",)
+        fields = ("name", "bio", "email", "rrss_1", "rrss_2", "web", "image")
 
 
 class ExperienceForm(forms.ModelForm):

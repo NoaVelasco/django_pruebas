@@ -15,27 +15,32 @@ def project_detail(request, pk):
     context = {"project": project}
     return render(request, "projects/project_detail.html", context)
 
+
 def project_new(request):
     if request.method == "POST":
-        form=ProjectForm(request.POST, request.FILES,)
+        form = ProjectForm(
+            request.POST,
+            request.FILES,
+        )
         if form.is_valid():
             project = form.save(commit=False)
-            #post.author = request.user
-            #post.published_date = timezone.now()
+            # post.author = request.user
+            # post.published_date = timezone.now()
             project.save()
-            return redirect('project_detail', pk=project.pk)   
+            return redirect("project_detail", pk=project.pk)
     else:
         form = ProjectForm()
-    return render(request, 'projects/project_edit.html', {'form':form})
+    return render(request, "projects/project_edit.html", {"form": form})
 
-def project_edit(request,pk):
-    project = get_object_or_404(Project,pk=pk)
+
+def project_edit(request, pk):
+    project = get_object_or_404(Project, pk=pk)
     if request.method == "POST":
         form = ProjectForm(request.POST, instance=project)
         if form.is_valid():
             project = form.save(commit=False)
             project.save()
-            return redirect('project_detail',pk=project.pk)
+            return redirect("project_detail", pk=project.pk)
     else:
-        form=ProjectForm(instance=project)
-        return render(request, 'projects/project_edit.html', {'form':form})
+        form = ProjectForm(instance=project)
+        return render(request, "projects/project_edit.html", {"form": form})
