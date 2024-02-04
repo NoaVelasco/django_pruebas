@@ -4,6 +4,11 @@ from .forms import ProjectForm
 
 
 # Create your views here.
+def projects(request, pk):
+    projects = Project.objects.filter(persona__exact=pk)
+    return render(request, "projects/projects.html", {"pk": pk, "projects": projects})
+
+
 def project_index(request):
     projects = Project.objects.all()
     context = {"projects": projects}
@@ -27,10 +32,10 @@ def project_new(request):
             # post.author = request.user
             # post.published_date = timezone.now()
             project.save()
-            return redirect("project_detail", pk=project.pk)
+            return redirect("project_index")
     else:
         form = ProjectForm()
-    return render(request, "projects/project_edit.html", {"form": form})
+    return render(request, "projects/project_new.html", {"form": form})
 
 
 def project_edit(request, pk):
@@ -43,4 +48,4 @@ def project_edit(request, pk):
             return redirect("project_detail", pk=project.pk)
     else:
         form = ProjectForm(instance=project)
-        return render(request, "projects/project_edit.html", {"form": form})
+        return render(request, "projects/project_edit.html", {"form": form, "pk": pk})

@@ -3,11 +3,19 @@
 {% extends "base.html" %}
 
 {% block page_content %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'index' %}">Inicio</span></a>
+        </li>
+    </ul>
+</nav>
 <h1>{{ project.title }}</h1>
+<h2>{{ project.persona }}</h2>
 <div class="row">
     <aside>
     <a class="btn btn-secondary" href="{% url 'project_edit' pk=project.pk %}"> Editar</a>
-    <button class="btn btn-primary btn-sm"> <a class="nav-link" href="/projects">Volver</a></button>
+    <button class="btn btn-primary btn-sm"> <a class="nav-link" href="{% url 'projects' project.persona_id %}">Volver</a></button>
     </aside>
     <div class="col-md-8">
         {% if project.image %}
